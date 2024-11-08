@@ -1,4 +1,4 @@
-# Boyish Telegram Boy ::
+# Boyish Telegram Boy 
 **ОБЗЫВАЕМСЯ**
 
 **МЕРИМ ПРИЧИНДАЛ**
