@@ -1,1 +1,4 @@
-# boyishTelegramBot
+#Boyish Telegram Boy::
+**ОБЗЫВАЕМСЯ**
+
+**МЕРИМ ПРИЧИНДАЛ**
