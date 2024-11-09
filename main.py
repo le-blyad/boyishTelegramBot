@@ -25,9 +25,9 @@ def who_command(update: Update, context: CallbackContext) -> None:
     current_time = time.time()
 
     last_time = user_last_command_time_dolboeb.get(user_id, 0)
-    timer = int(30 - (current_time - last_time))
+    timer = int(60 - (current_time - last_time))
 
-    if current_time - last_time < 1:
+    if current_time - last_time < 60:
 
         update.message.reply_text(f"че ты жмешь? долбоеб, блять! подожди {timer} секунд...")
 
@@ -51,10 +51,10 @@ def come_back_size_dick(update: Update, context: CallbackContext) -> None:
 
     # Проверяем, когда пользователь в последний раз использовал команду
     last_time = user_last_command_time_size.get(user_id, 0)
-    timer = int(30 - (current_time - last_time))
+    timer = int(60 - (current_time - last_time))
 
     # Если с последнего использования прошло меньше 10 секунд, отправляем другую фразу
-    if current_time - last_time < 1:
+    if current_time - last_time < 60:
         update.message.reply_text(f"куда ты нахуй хуй растишь?? подожди {timer} секунд...")
         return
     else:
@@ -62,14 +62,13 @@ def come_back_size_dick(update: Update, context: CallbackContext) -> None:
             update.message.reply_text("никто не записался на увеличения хуя")
             return
 
-        random_user_id = random.choice(list(user_list.keys()))
         how_change_size = list(range(-20, 21))
         change_dick_size = random.choice(how_change_size)
 
-        user_list[random_user_id]['size'] += change_dick_size
+        user_list[user_id]['size'] += change_dick_size
 
         update.message.reply_text(
-            f"хуй {user_list[user_id]['name']} получает {change_dick_size} см, итого... всего-то {user_list[random_user_id]['size']} см")
+            f"хуй {user_list[user_id]['name']} получает {change_dick_size} см, итого... всего-то {user_list[user_id]['size']} см")
     user_last_command_time_size[user_id] = current_time
 
 def list_dolboebov(update: Update, context: CallbackContext) -> None:
