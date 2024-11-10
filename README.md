@@ -1,4 +1,4 @@
-# Телеграм-бот "Boyish Telegram Boy" 
+# Телеграм-бот "Boyish Telegram Bot" 
 
 **ОБЗЫВАЕМСЯ**
 
