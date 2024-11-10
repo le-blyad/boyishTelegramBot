@@ -66,6 +66,7 @@ async def come_back_size_dick(update: Update, context: CallbackContext) -> None:
             f"хуй {user_list[user_id]['name']} получает {change_dick_size} см, итого... всего-то {user_list[user_id]['size']} см")
     user_last_command_time_size[user_id] = current_time
 
+
 async def list_dolboebov(update: Update, context: CallbackContext) -> None:
     if not user_list:
         await update.message.reply_text("Список пуст.")
@@ -77,8 +78,10 @@ async def list_dolboebov(update: Update, context: CallbackContext) -> None:
 
     await update.message.reply_text(result)
 
+
 async def about_me(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text("ээээ, бля короче тыкай /who_dolboeb, /come_back_size_dick и все, иди нахуй")
+
 
 def main():
     application = Application.builder().token(TOKEN).build()
