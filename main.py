@@ -3,6 +3,7 @@ import random
 from telegram import Update
 from telegram.ext import Application, CommandHandler, CallbackContext
 import time
+from config import TOKEN
 
 user_list = {}
 user_last_command_time_dolboeb = {}
@@ -80,7 +81,6 @@ async def about_me(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text("ээээ, бля короче тыкай /who_dolboeb, /come_back_size_dick и все, иди нахуй")
 
 def main():
-    TOKEN = ""
     application = Application.builder().token(TOKEN).build()
 
     application.add_handler(CommandHandler("start", start_command))
