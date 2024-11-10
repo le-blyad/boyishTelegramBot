@@ -37,9 +37,10 @@ async def who_command(update: Update, context: CallbackContext) -> None:
         random_user_id = random.choice(list(user_list.keys()))
         user_list[random_user_id]['count_dolboeb'] += 1
         await update.message.reply_text(
-            f"{user_list[random_user_id]['name']} - долбоеб, уже {user_list[random_user_id]['count_dolboeb']} раз(а)!")
+            f"{user_list[random_user_id]['name']} - долбоеб, уже {user_list[random_user_id]['count_dolboeb']} раз(а)!"
+        )
+        user_last_command_time_dolboeb[user_id] = current_time
 
-    user_last_command_time_dolboeb[user_id] = current_time
 
 
 async def come_back_size_dick(update: Update, context: CallbackContext) -> None:
