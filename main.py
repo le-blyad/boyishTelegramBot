@@ -21,17 +21,18 @@ async def start_command(update: Update, context: CallbackContext) -> None:
 
 
 async def who_command(update: Update, context: CallbackContext) -> None:
-    user_id = update.message.from_user.id
     current_time = time.time()
+    user_id = update.message.from_user.id
 
     last_time = user_last_command_time_dolboeb.get(user_id, 0)
     timer = int(60 - (current_time - last_time))
 
     if current_time - last_time < 60:
         await update.message.reply_text(f"че ты жмешь? долбоеб, блять🤬! подожди {timer} секунд...")
+        return
     else:
         if not user_list:
-            await update.message.reply_text("Список пуст.")
+            await update.message.reply_text("никто не записался на увеличения хуя😒")
             return
 
         random_user_id = random.choice(list(user_list.keys()))
@@ -49,7 +50,7 @@ async def come_back_size_dick(update: Update, context: CallbackContext) -> None:
     last_time = user_last_command_time_size.get(user_id, 0)
     timer = int(60 - (current_time - last_time))
 
-    if current_time - last_time < 60:
+    if current_time - last_time < 1:
         await update.message.reply_text(f"куда ты нахуй хуй растишь🤬?? подожди {timer} секунд...")
         return
     else:
@@ -60,10 +61,15 @@ async def come_back_size_dick(update: Update, context: CallbackContext) -> None:
         how_change_size = list(range(-20, 21))
         change_dick_size = random.choice(how_change_size)
 
-        user_list[user_id]['size'] += change_dick_size
 
-        await update.message.reply_text(
-            f"хуй {user_list[user_id]['name']} получает {change_dick_size} см, итого... всего-то {user_list[user_id]['size']} см😂")
+        if user_list[user_id]['size'] + change_dick_size > 1:
+            user_list[user_id]['size'] += change_dick_size
+            await update.message.reply_text(
+                f"{user_list[user_id]['name']} получает {change_dick_size} см, итого... его хуй всего-то {user_list[user_id]['size']} см😂")
+        else:
+            user_list[user_id]['size'] = 0
+            await update.message.reply_text(
+                f"{user_list[user_id]['name']} получает {change_dick_size} см, итого... его хуй всего-то {user_list[user_id]['size']} см😂")
     user_last_command_time_size[user_id] = current_time
 
 
